@@ -1,0 +1,30 @@
+﻿name: GH-Pages-Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install and Build
+        run: |
+          pip install mkdocs
+          mkdocs build --strict
+          
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./site
+          
+      - name: Deploy
+        uses: actions/deploy-pages@v3
