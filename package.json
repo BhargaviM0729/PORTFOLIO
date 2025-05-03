@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "echo Building for production && if not exist dist mkdir dist && xcopy /E /I public\\* dist\\ && copy index.js dist\\",
+    "build": "echo 'Building for production' && mkdir -p dist && cp -r public/* dist/ && cp index.js dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
