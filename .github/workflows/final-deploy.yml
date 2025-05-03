@@ -1,51 +1,42 @@
 ﻿name: Final-Deploy
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Trigger the workflow on changes to the 'main' branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      pages: write  # Permission to deploy to GitHub Pages
+      pages: write  # Necessary for GitHub Pages deployment
+
     steps:
-      # Checkout the code from the repository
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up Python for the environment
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: '3.x'
 
-      # Cache Python dependencies to speed up future runs (Updated to actions/cache@v3)
-      - name: Cache Python dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      # Install MkDocs and MkDocs Material (you can add other dependencies if needed)
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
+        run: |
+          pip install mkdocs mkdocs-material
 
-      # Build the site with MkDocs (produces output in the 'site' directory)
-      - name: Build
-        run: mkdocs build --strict --verbose
+      - name: Build site
+        run: |
+          mkdocs build --strict --verbose
 
-      # Upload the build artifact for deployment
-      - name: Upload
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           name: pages-artifact
           path: ./site
 
-      # Deploy the site to GitHub Pages
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
+
 
 
 
