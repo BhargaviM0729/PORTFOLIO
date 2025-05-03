@@ -23,7 +23,7 @@ jobs:
         run: pip install mkdocs mkdocs-material
 
       - name: Build
-        run: mkdocs build --strict
+        run: mkdocs build --strict --verbose
 
       - name: Upload
         uses: actions/upload-pages-artifact@v3
