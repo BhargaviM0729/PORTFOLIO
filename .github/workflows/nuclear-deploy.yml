@@ -1,18 +1,41 @@
-﻿name: Nuclear-Deploy
-on: [push]
+﻿# Delete local workflow files
+Remove-Item .github/workflows -Recurse -Force
+
+# Create fresh workflow with different name
+mkdir .github/workflows
+@'
+name: Final-Deploy
+on:
+  push:
+    branches: [main]
+    
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
+      
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-      - run: |
-          pip install mkdocs
-          mkdocs build
-      - uses: actions/upload-pages-artifact@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          
+      - name: Install dependencies
+        run: pip install mkdocs mkdocs-material
+        
+      - name: Build
+        run: mkdocs build --strict
+        
+      - name: Upload
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./site
-      - uses: actions/deploy-pages@v3
+          
+      - name: Deploy
+        uses: actions/deploy-pages@v3
+
