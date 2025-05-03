@@ -12,12 +12,10 @@
     "npm": "^10.9.2"
   },
   "scripts": {
-  "start": "node index.js",
-  "build": "echo 'Building for production' && if not exist dist mkdir dist && xcopy /E /I public\\* dist\\ && copy index.js dist\\",
-  "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "build": "echo 'Building for production' && mkdir -p dist && cp -r public/* dist/ && cp index.js dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BhargaviM0729/PORTFOLIO.git"
@@ -30,6 +28,7 @@
   },
   "homepage": "https://github.com/BhargaviM0729/PORTFOLIO#readme"
 }
+
 
 
 
