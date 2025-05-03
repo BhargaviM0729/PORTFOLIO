@@ -19,9 +19,9 @@ jobs:
         with:
           python-version: "3.x"
 
-      # Cache Python dependencies to speed up future runs
+      # Cache Python dependencies to speed up future runs (Updated to actions/cache@v3)
       - name: Cache Python dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -46,5 +46,6 @@ jobs:
       # Deploy the site to GitHub Pages
       - name: Deploy
         uses: actions/deploy-pages@v3
+
 
 
