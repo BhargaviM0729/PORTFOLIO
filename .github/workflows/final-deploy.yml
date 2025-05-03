@@ -1,42 +1,35 @@
-﻿name: Final-Deploy
+﻿name: Final Deploy
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the 'main' branch
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write  # This is necessary for GitHub Pages deployment
-      id-token: write  # Required for deploying and interacting with GitHub API
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build site
-        run: |
-          mkdocs build --strict --verbose
+    - name: Build project
+      run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: pages-artifact
-          path: ./site
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
 
 
 
