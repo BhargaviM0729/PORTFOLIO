@@ -3,13 +3,14 @@
 on:
   push:
     branches:
-      - main  # Trigger the workflow on changes to the 'main' branch
+      - main  # Trigger the workflow on pushes to the 'main' branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      pages: write  # Necessary for GitHub Pages deployment
+      pages: write  # This is necessary for GitHub Pages deployment
+      id-token: write  # Required for deploying and interacting with GitHub API
 
     steps:
       - name: Checkout code
