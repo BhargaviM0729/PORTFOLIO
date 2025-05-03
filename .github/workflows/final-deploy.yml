@@ -26,8 +26,9 @@ jobs:
         run: mkdocs build --strict
 
       - name: Upload
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
+          name: pages-artifact
           path: ./site
 
       - name: Deploy
