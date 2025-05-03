@@ -22,8 +22,7 @@ theme:
   
 plugins:
   - search
-  - tags:
-      tags_file: tags.md
+  - tags
   - blog
 
 markdown_extensions:
