@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+# Welcome to My Portfolio
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to my portfolio website! Here, you can explore my work in [autonomous vehicles](#) and [control systems](#).
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Projects
+- [Project 1](#)
+- [Project 2](#)
+- [Project 3](#)
