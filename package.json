@@ -1,18 +1,22 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "My Portfolio Website",
+  "description": "My portfolio site",
   "main": "index.js",
   "scripts": {
-  "build": "npx rimraf dist && mkdir dist && cp -r public/* dist/ && cp index.js dist/"
+  "build": "rimraf dist && mkdir dist && xcopy /E /I public\\* dist\\ && copy index.js dist\\"
 },
 
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "http-server": "^14.1.1"
   },
   "devDependencies": {
     "rimraf": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
+

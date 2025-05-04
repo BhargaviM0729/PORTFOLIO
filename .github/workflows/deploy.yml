@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-      - main  # Trigger when code is pushed to main branch
+      - main  # Adjust the branch name if necessary
 
 jobs:
   build:
@@ -15,10 +15,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Adjust to your Node version if needed
+          node-version: '16'  # Adjust based on your Node version
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install rimraf
+        run: npm install rimraf --save-dev
 
       - name: Build project
         run: npm run build
@@ -26,5 +29,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # This is the branch GitHub Pages will serve from
-          folder: dist      # Ensure the build outputs to 'dist/'
+          branch: gh-pages  # Deploy to the gh-pages branch
+          folder: dist  # The directory to deploy (make sure the build outputs to 'dist')
