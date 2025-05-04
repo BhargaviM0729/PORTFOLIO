@@ -4,8 +4,9 @@
   "description": "My Portfolio Website",
   "main": "index.js",
   "scripts": {
-    "build": "npx rimraf dist && mkdir dist && xcopy /E /I public\\* dist\\ && copy index.js dist\\"
-  },
+  "build": "npx rimraf dist && mkdir dist && cp -r public/* dist/ && cp index.js dist/"
+},
+
   "author": "",
   "license": "ISC",
   "dependencies": {
