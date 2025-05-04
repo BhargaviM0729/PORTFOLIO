@@ -4,7 +4,7 @@
   "description": "My portfolio site",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && mkdir dist && ncp public dist/ && copy index.js dist/"
+    "build": "rimraf dist && mkdir dist && ncp public dist && cp index.js dist/index.js"
   },
   "author": "",
   "license": "ISC",
