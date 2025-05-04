@@ -1,35 +1,17 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "Portfolio website with Node.js and Express",
+  "description": "My Portfolio Website",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "corepack": "^0.32.0",
-    "express": "^5.1.0",
-    "npm": "^10.9.2"
-  },
   "scripts": {
-    "start": "node index.js",
-    "build": "echo 'Building for production' && mkdir -p dist && cp -r public/* dist/ && cp index.js dist/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx rimraf dist && mkdir dist && xcopy /E /I public\\* dist\\ && copy index.js dist\\"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BhargaviM0729/PORTFOLIO.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BhargaviM0729/PORTFOLIO/issues"
+  "dependencies": {
+    "express": "^4.17.1"
   },
-  "homepage": "https://github.com/BhargaviM0729/PORTFOLIO#readme"
+  "devDependencies": {
+    "rimraf": "^6.0.1"
+  }
 }
-
-
-
-
-
