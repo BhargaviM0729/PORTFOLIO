@@ -38,7 +38,8 @@ nav:
     - Home: index.md
     - Code Docs:
        - Python: Coding/my-first-python-file.md
-    - About: 
+    - About:
+       - Current projects: about/projects.md
        - About Me: about/about.md
        - Childhood: about/Childhood.md
     - Tags: tags.md
