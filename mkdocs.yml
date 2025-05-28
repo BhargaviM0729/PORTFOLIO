@@ -2,6 +2,7 @@ site_name: Bhargavi's Portfolio
 site_url: https://mydomain.org/mysite
 theme:
   name: material
+  logo: images/MyPhoto.jpg
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -17,7 +18,13 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
-
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+    - scheme: slate
+      primary: custom
+      accent: custom
 
   
 plugins:
@@ -33,15 +40,18 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - attr_list
 
 nav:
     - Home: index.md
-    - Code Docs:
-       - Python: Coding/my-first-python-file.md
-    - About:
-       - Current projects: about/projects.md
-       - About Me: about/about.md
-       - Childhood: about/Childhood.md
+    - Projects: 
+       - Projects Overview: Projects/projects.md
+       - About Me: Projects/about.md
+       - Childhood: Projects/Childhood.md
     - Tags: tags.md
     - Blog:
        - blog/index.md
+
+extra_css:
+  - styles/overrides.css
+  - extra_colors.css
