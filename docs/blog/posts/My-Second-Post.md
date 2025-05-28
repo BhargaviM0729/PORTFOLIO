@@ -1,7 +1,10 @@
 ---
+title: My Second Post
 date: 2025-05-02
 categories:
-    - Documentation
+  - Documentation
 tags:
-    - MkDocs
+  - MkDocs
 ---
+
+Your post content starts here...
