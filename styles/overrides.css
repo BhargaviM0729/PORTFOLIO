@@ -1,0 +1,12 @@
+/* Make the header logo circular in Material for MkDocs */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  width: 48px !important;   /* Adjust as needed */
+  height: 48px !important;  /* Adjust as needed */
+}
+
+
+
+
